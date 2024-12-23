@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Songs Playlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        header {
+            background-color: #d72222;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        header nav ul li {
+            margin-right: 20px;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .playlist-container {
+            padding: 2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .playlist-container h1 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .song-item {
+            display: flex;
+            flex-direction: column;
+            background-color: #1f1f1f;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .song-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .song-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .song-info h3 {
+            margin: 0;
+        }
+
+        .song-info p {
+            margin: 5px 0 0 0;
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            margin-top: 1em;
+        }
+
+        .controls button {
+            background-color: #d72222;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .controls button:hover {
+            background-color: #b91d1d;
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+            background-color: #555;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-bar div {
+            width: 0%;
+            height: 100%;
+            background-color: #d72222;
+            transition: width 0.2s;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            margin-top: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <div class="playlist-container">
+        <h1>Kishor Kumar - Playlist</h1>
+
+        <div class="song-item">
+            <div class="song-info">
+                <img src="pp6.jpg" alt="Song 1">
+                <div>
+                    <h3>Pyar diwana hota h</h3>
+                    <p>Duration: 3:45</p>
+                </div>
+            </div>
+            <div class="controls">
+                <button onclick="playSong('audio1')">Play</button>
+                <button onclick="pauseSong('audio1')">Pause</button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress1">
+                        <div></div>
+                    </div>
+                </div>
+                <audio id="audio1" src="1.mp3" ontimeupdate="updateProgress('audio1', 'progress1')"></audio>
+            </div>
+        </div>
+
+        <div class="song-item">
+            <div class="song-info">
+                <img src="pp3.jpg" alt="Song 2">
+                <div>
+                    <h3>Ek ladki bheegi bhagi si</h3>
+                    <p>Duration: 4:15</p>
+                </div>
+            </div>
+            <div class="controls">
+                <button onclick="playSong('audio2')">Play</button>
+                <button onclick="pauseSong('audio2')">Pause</button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress2">
+                        <div></div>
+                    </div>
+                </div>
+                <audio id="audio2" src="2.mp3" ontimeupdate="updateProgress('audio2', 'progress2')"></audio>
+            </div>
+        </div>
+        <div class="song-item">
+            <div class="song-info">
+                <img src="poster3.jpg" alt="Song 1">
+                <div>
+                    <h3>Ek ajnabi haseena se</h3>
+                    <p>Duration: 3:45</p>
+                </div>
+            </div>
+            <div class="controls">
+                <button onclick="playSong('audio1')">Play</button>
+                <button onclick="pauseSong('audio1')">Pause</button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress1">
+                        <div></div>
+                    </div>
+                </div>
+                <audio id="audio1" src="3.mp3" ontimeupdate="updateProgress('audio1', 'progress1')"></audio>
+            </div>
+        </div>
+        <div class="song-item">
+            <div class="song-info">
+                <img src="artist4.jpg" alt="Song 1">
+                <div>
+                    <h3>Panna ki tamanna hai</h3>
+                    <p>Duration: 3:45</p>
+                </div>
+            </div>
+            <div class="controls">
+                <button onclick="playSong('audio1')">Play</button>
+                <button onclick="pauseSong('audio1')">Pause</button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress1">
+                        <div></div>
+                    </div>
+                </div>
+                <audio id="audio1" src="4.mp3" ontimeupdate="updateProgress('audio1', 'progress1')"></audio>
+            </div>
+        </div>
+
+        <!-- Repeat similar blocks for more songs -->
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 PSP Music Streaming</p>
+    </footer>
+
+    <script>
+        function playSong(audioId) {
+            const audio = document.getElementById(audioId);
+            audio.play();
+        }
+
+        function pauseSong(audioId) {
+            const audio = document.getElementById(audioId);
+            audio.pause();
+        }
+
+        function updateProgress(audioId, progressId) {
+            const audio = document.getElementById(audioId);
+            const progressBar = document.getElementById(progressId).querySelector('div');
+
+            if (audio.duration) {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = progress + '%';
+            }
+        }
+    </script>
+</body>
+
+</html>
